@@ -1,8 +1,6 @@
 package com.devsuperior.dsList.Entities;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -11,13 +9,13 @@ public class Belonging {
 
     @EmbeddedId
     private BelongingPK id = new BelongingPK();
-    private Integer position;
+    private Long position;
 
     public Belonging(){
 
     }
 
-    public Belonging(Game game, GameList list, Integer position) {
+    public Belonging(Long position, Game game, GameList list) {
         id.setGame(game);
         id.setList(list);
         this.position = position;
@@ -31,11 +29,11 @@ public class Belonging {
         this.id = id;
     }
 
-    public Integer getPosition() {
+    public Long getPosition() {
         return position;
     }
 
-    public void setPosition(Integer position) {
+    public void setPosition(Long position) {
         this.position = position;
     }
 

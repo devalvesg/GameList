@@ -1,6 +1,7 @@
 package com.devsuperior.dsList.repositories;
 
 import com.devsuperior.dsList.Entities.Game;
+import com.devsuperior.dsList.Entities.GameList;
 import com.devsuperior.dsList.projections.GameMinProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

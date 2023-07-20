@@ -1,5 +1,6 @@
 package com.devsuperior.dsList.Entities;
 
+import com.devsuperior.dsList.DTO.GameRequestDTO;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -22,6 +23,17 @@ public class Game {
     private String longDescription;
 
     public Game(){
+    }
+
+    public Game(GameRequestDTO newGame){
+        this.title = newGame.getTitle();
+        this.year = newGame.getYear();
+        this.genre = newGame.getGenre();
+        this.platforms = newGame.getPlatforms();
+        this.score = newGame.getScore();
+        this.imgUrl = newGame.getImgUrl();
+        this.shortDescription = newGame.getShortDescription();
+        this.longDescription = newGame.getLongDescription();
     }
 
     public Game(Long id, String title, Integer year, String genre, String platforms,Double score, String imgUrl, String shortDescription, String longDescription) {
@@ -68,11 +80,11 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlatform() {
+    public String getPlatforms() {
         return platforms;
     }
 
-    public void setPlatform(String platform) {
+    public void setPlatforms(String platform) {
         this.platforms = platform;
     }
 
