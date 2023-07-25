@@ -1,9 +1,6 @@
 package com.devsuperior.dsList.controllers;
 
-import com.devsuperior.dsList.DTO.GameDTO;
-import com.devsuperior.dsList.DTO.GameListDTO;
-import com.devsuperior.dsList.DTO.GameMinDTO;
-import com.devsuperior.dsList.DTO.GameRequestDTO;
+import com.devsuperior.dsList.DTO.*;
 import com.devsuperior.dsList.Entities.Belonging;
 import com.devsuperior.dsList.Entities.Game;
 import com.devsuperior.dsList.projections.GameMinProjection;
@@ -34,5 +31,16 @@ public class GameController {
     public void newGame(@RequestBody GameRequestDTO gameDTO){
         gameService.newGame(gameDTO);
         gameService.newGameBeloging(gameDTO.getTitle());
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        gameService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateScore(@PathVariable Long id, @RequestBody UpdateDTO data){
+        gameService.updateScore(data.score(), id);
+
     }
 }

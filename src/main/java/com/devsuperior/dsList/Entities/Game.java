@@ -1,6 +1,7 @@
 package com.devsuperior.dsList.Entities;
 
 import com.devsuperior.dsList.DTO.GameRequestDTO;
+import com.devsuperior.dsList.DTO.UpdateDTO;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -25,6 +26,9 @@ public class Game {
     public Game(){
     }
 
+    public Game(UpdateDTO update){
+        this.score = update.score();
+    }
     public Game(GameRequestDTO newGame){
         this.title = newGame.getTitle();
         this.year = newGame.getYear();

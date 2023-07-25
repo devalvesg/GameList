@@ -3,6 +3,7 @@ package com.devsuperior.dsList.services;
 import com.devsuperior.dsList.DTO.GameDTO;
 import com.devsuperior.dsList.DTO.GameMinDTO;
 import com.devsuperior.dsList.DTO.GameRequestDTO;
+import com.devsuperior.dsList.DTO.UpdateDTO;
 import com.devsuperior.dsList.Entities.Belonging;
 import com.devsuperior.dsList.Entities.Game;
 import com.devsuperior.dsList.Entities.GameList;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service //OU @Component
 public class GameService {
@@ -43,20 +45,24 @@ public class GameService {
         return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
 
+    @Transactional
     public Game findIdByGame(Long id){
         Game result = gameRepository.findById(id).get();
         return result;
     }
 
+    @Transactional
     public GameList findIdByList(Long listId){
        return listRepository.searchIdByList(listId);
     }
 
+    @Transactional
     public void newGame(GameRequestDTO gameDTO){
         Game game = new Game(gameDTO);
         gameRepository.save(game);
     }
 
+    @Transactional
     public void newGameBeloging(String title) {
         Long id = belongingRepository.searchId(title);
         String list = belongingRepository.searchList(title);
@@ -84,4 +90,21 @@ public class GameService {
 
     }
 
+    @Transactional
+    public void deleteById(Long id) {
+        //PEGA O ID DA LISTA DO JOGO DELETADO
+        Long listId = belongingRepository.searchIdList(id);
+
+        //DELETA NA TABELA BELOGING
+        belongingRepository.deleteById(id, listId);
+        //DELETA O JOGO DA LISTA DE JOGOS
+        gameRepository.deleteById(id);
+    }
+    @Transactional
+    public void updateScore(Double score, Long id) {
+        Optional<Game> gameToUpdate = gameRepository.findById(id);
+        Game updateGame = gameToUpdate.get();
+        updateGame.setScore(score);
+        gameRepository.save(updateGame);
+    }
 }
