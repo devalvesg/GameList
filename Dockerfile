@@ -4,5 +4,5 @@
 # RUN mvn -f /app/pom.xml clean package -Dmaven.test.skip
 
 FROM openjdk:17-oracle
-COPY target/*.jar app.jar
+COPY src/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
