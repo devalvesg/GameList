@@ -39,7 +39,7 @@ O projeto foi elaborado [nesse vídeo](https://youtu.be/SsWZ4O9iWuo).
 ```
 - Executar:
 ```
-java -jar place-service/target/place-service-0.0.1-SNAPSHOT.jar
+java -jar dsList/src/dsList-0.0.1-SNAPSHOT.jar
 ```
 
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
@@ -57,7 +57,7 @@ A API poderá ser acessada em [localhost:8080](http://localhost:8080).
 ```
 - Executar o container:
 ```
-docker run --name place-service -p 8080:8080  -d place-service:0.0.1-SNAPSHOT
+docker run --name ds-list -p 8080:8080  -d dsList:0.0.1-SNAPSHOT
 ```
 
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
