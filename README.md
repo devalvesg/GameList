@@ -7,8 +7,6 @@
  <img src="https://img.shields.io/static/v1?label=Linkedin&message=Gabriel Alves&color=8257E5&labelColor=000000" alt="Gabriel Alves" />
 </p>
 
-API para gerenciar lugares (CRUD) que faz parte [desse desafio](https://github.com/RocketBus/quero-ser-clickbus/tree/master/testes/backend-developer) para pessoas desenvolvedoras backend que se candidatam para a ClickBus.
-
 API de uma lista de jogos (CRUD) que foi desenvolvida durante a imersão do canal DevSuperior e modificado pelo autor(Gabriel Alves).
 
 
@@ -27,6 +25,7 @@ API de uma lista de jogos (CRUD) que foi desenvolvida durante a imersão do cana
 - Uso de DTOs para a API
 - Injeção de Dependências
 - Auditoria sobre criação e atualização da entidade
+- Consulta no Banco de dados com JPA
 
 ## Como Executar
 
