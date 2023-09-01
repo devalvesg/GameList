@@ -11,7 +11,6 @@ API para gerenciar lugares (CRUD) que faz parte [desse desafio](https://github.c
 
 API de uma lista de jogos (CRUD) que foi desenvolvida durante a imersão do canal DevSuperior e modificado pelo autor(Gabriel Alves).
 
-O projeto foi elaborado [nesse vídeo](https://youtu.be/SsWZ4O9iWuo).
 
 ## Tecnologias
  
